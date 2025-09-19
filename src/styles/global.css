@@ -26,8 +26,8 @@
     }
   }
 
-  --font-howell: "Howell", sans-serif;
-  --font-seasons: "Seasons", sans-serif;
+  --font-cookie: "Cookie", sans-serif;
+  --font-playfair: "Playfair", sans-serif;
 }
 
 @layer utilities{
@@ -39,15 +39,15 @@
 }
 
 @font-face {
-  font-family: Howell;
+  font-family: Cookie;
   font-weight: 400;
   font-style: normal;
-  src: url("/src/assets/fonts/howel_rode.ttf") format("truetype");
+  src: url("/public/fonts/Cookie-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: Seasons;
+  font-family: Playfair;
   font-weight: 400;
   font-style: normal;
-  src: url("/src/assets/fonts/seasons.otf") format("opentype");
+  src: url("/public/fonts/PlayfairDisplay-Regular.ttf") format("truetype");
 }

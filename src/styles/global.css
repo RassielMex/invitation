@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme{
+  --color-main: #76847b;
+  --color-secondary: #c7d0d8; 
+  --color-tertiary: #d8d7a5;
+  --color-main-variant: #5b6d3d; 
+  
+  --animate-fadeIn: fadeIn 1.5s ease-in-out;
+  @keyframes fadeIn {
+     0% { 
+      opacity: 0.2;
+     }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  --animate-upDown: upDown 1s infinite;
+  @keyframes upDown {
+     0% { 
+      transform: translatey(0);
+     }
+    100% {
+      transform: translateY(-30px);
+    }
+  }
+
+  --font-howell: "Howell", sans-serif;
+  --font-seasons: "Seasons", sans-serif;
+}
+
+@layer utilities{
+   .bg-principal {
+    background-image: url("/src/assets/images/SaveTheDate_334_v.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@font-face {
+  font-family: Howell;
+  font-weight: 400;
+  font-style: normal;
+  src: url("/src/assets/fonts/howel_rode.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Seasons;
+  font-weight: 400;
+  font-style: normal;
+  src: url("/src/assets/fonts/seasons.otf") format("opentype");
+}

@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+
+const { src, alt } = Astro.props;
+---
+
+<Image
+  src={src}
+  alt={alt}
+  class="fade-image w-full max-w-5xl lg:max-h-[1080px] mt-4 opacity-0 transition-opacity duration-1000"
+/>
+
+<script>
+  const images = document.querySelectorAll(".fade-image");
+
+  if (images.length>0) {
+   
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-0");
+            entry.target.classList.add("opacity-100");
+            observer.unobserve(entry.target); // animar solo una vez
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    images.forEach((img) => observer.observe(img));
+  }
+</script>

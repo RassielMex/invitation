@@ -4,7 +4,7 @@ import FadeImage from "@components/FadeImage.astro";
 import cornerFlower from "@assets/images/hojas.png";
 import imgSection from "@assets/images/SaveTheDate_446_1.jpg";
 import churchImg from "@assets/images/iglesia.png";
-import glassesImg from "@assets/images/brindis.png"
+import glassesImg from "@assets/images/brindis.png";
 ---
 
 <section
@@ -13,42 +13,33 @@ import glassesImg from "@assets/images/brindis.png"
   <Image
     alt="corner"
     src={cornerFlower}
-    class="rotate-[180deg] top-0 left-0 absolute w-20 h-20"
-  />
-  <Image
-    alt="corner"
-    src={cornerFlower}
     class="bottom-0 right-0 absolute w-20 h-20"
   />
 
+  <FadeImage alt="img-section" src={imgSection} />
+
   <div class="w-full flex flex-col gap-2 items-center justify-center mt-4">
-    <p class="text-amber-50  text-xl w-full text-center my-auto">
-      Misa
-    </p>
+    <p class="text-amber-50 text-xl w-full text-center my-auto">Misa</p>
     <Image alt="date" src={churchImg} class="h-10 w-10" />
-    <p class="text-amber-50  text-base w-full text-center">
+    <p class="text-amber-50 text-base w-full text-center">
       Iglesia de San Lorenzo, Umán - 8pm
     </p>
     <a
-      class="py-1 px-4 rounded-lg bg-tertiary underline text-main-variant  font-bold"
+      class="py-1 px-4 rounded-lg bg-tertiary underline text-main-variant font-bold"
       href="https://maps.app.goo.gl/yw2RH6RfwUH3ZJVcA"
       target="_blank"
       rel="noopener noreferrer">Ver Ubicacion</a
     >
   </div>
 
-  <FadeImage alt="img-section" src={imgSection} />
-
   <div class="w-full flex flex-col gap-2 items-center justify-center mt-4">
-    <p class="text-amber-50  text-xl w-full text-center my-auto">
-      Recepción
-    </p>
+    <p class="text-amber-50 text-xl w-full text-center my-auto">Recepción</p>
     <Image alt="date" src={glassesImg} class="h-10 w-10" />
-    <p class="text-amber-50  text-base w-52 text-center">
+    <p class="text-amber-50 text-base w-52 text-center">
       Hacienda Sayab-Há ubicada en Tanil, Umán - 9:30pm
     </p>
     <a
-      class="py-1 px-4 rounded-lg bg-tertiary underline text-main-variant  font-bold"
+      class="py-1 px-4 rounded-lg bg-tertiary underline text-main-variant font-bold"
       href="https://maps.app.goo.gl/mvmFgABCn5Jk33BM9"
       target="_blank"
       rel="noopener noreferrer">Cómo llegar</a

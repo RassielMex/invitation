@@ -6,6 +6,7 @@ import calendar from "@assets/images/calendar.png";
 import imgSection from "@assets/images/Civil_JulixRassiel_169.jpg";
 import weddingImg from "@assets/images/wedding-couple.png";
 import CounterDown from "@components/CounterDown.astro";
+import loveSong from "@assets/music/lovesong.mp3"
 ---
 
 <section
@@ -24,7 +25,8 @@ import CounterDown from "@components/CounterDown.astro";
 
   <div class="py-4 m-auto w-1/2">
     <audio controls autoplay muted class="w-full rounded-lg overflow-hidden">
-      <source src="/public/music/lovesong.mp3" type="audio/mpeg" />
+      <source src={loveSong} type="audio/mpeg" />
+      Tu navegador no soporta audio.
     </audio>
   </div>
 

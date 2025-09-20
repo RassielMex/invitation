@@ -1,0 +1,78 @@
+---
+
+---
+
+<div>
+  <p class="text-amber-50 text-xl w-full text-center mt-4">Faltan:</p>
+  <div class="flex justify-center items-center gap-2 py-4">
+    <div class="bg-secondary py-1 px-3 rounded-md flex flex-col w-20">
+      <p id="days" class="text-amber-50 text-3xl w-full text-center my-auto">
+        1
+      </p>
+      <p class="text-amber-50 text-xs w-full text-center my-auto">Dias</p>
+    </div>
+    <div class="bg-secondary py-1 px-3 rounded-md flex flex-col w-20">
+      <p id="hours" class="text-amber-50 text-3xl w-full text-center my-auto">
+        1
+      </p>
+      <p class="text-amber-50 text-xs w-full text-center my-auto">Horas</p>
+    </div>
+    <div class="bg-secondary py-1 px-3 rounded-md flex flex-col w-20">
+      <p id="minutes" class="text-amber-50 text-3xl w-full text-center my-auto">
+        1
+      </p>
+      <p class="text-amber-50 text-xs w-full text-center my-auto">Minutos</p>
+    </div>
+    <div class="bg-secondary py-1 px-3 rounded-md flex flex-col w-20">
+      <p id="seconds" class="text-amber-50 text-3xl w-full text-center my-auto">
+        1
+      </p>
+      <p class="text-amber-50 text-xs w-full text-center my-auto">Segundos</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const targetDate: Date = new Date("2025-11-14T23:59:59");
+
+  const daysEl = document.getElementById("days") as HTMLElement;
+  const hoursEl = document.getElementById("hours") as HTMLElement;
+  const minutesEl = document.getElementById("minutes") as HTMLElement;
+  const secondsEl = document.getElementById("seconds") as HTMLElement;
+
+  function pad(n: number): string {
+    return String(n).padStart(2, "0");
+  }
+
+  function updateCountdown(): void {
+    const now: number = new Date().getTime();
+    const distance: number = targetDate.getTime() - now;
+  
+    if (distance <= 0) {
+      daysEl.textContent = "0";
+      hoursEl.textContent = "00";
+      minutesEl.textContent = "00";
+      secondsEl.textContent = "00";
+      clearInterval(timer);
+      return;
+    }
+
+    const days: number = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours: number = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes: number = Math.floor(
+      (distance % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds: number = Math.floor((distance % (1000 * 60)) / 1000);
+
+    daysEl.textContent = days.toString();
+    hoursEl.textContent = pad(hours);
+    minutesEl.textContent = pad(minutes);
+    secondsEl.textContent = pad(seconds);
+  }
+
+  // primera ejecución inmediata
+  updateCountdown();
+  const timer: number = window.setInterval(updateCountdown, 1000);
+</script>

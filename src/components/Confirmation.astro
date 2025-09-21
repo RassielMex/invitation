@@ -1,12 +1,12 @@
 ---
 import Image from "astro/components/Image.astro";
-import FadeImage from "@components/FadeImage.astro";
 import cornerFlower from "@assets/images/hojas.png";
-import imgSection from "@assets/images/SaveTheDate_383_h.jpg";
 import whatsImg from "@assets/images/whatsapp.png";
 import rings from "@assets/images/engagement-ring.png";
 import brideImg from "@assets/images/bride.png";
-import groomImg from "@assets/images/groom.png"
+import groomImg from "@assets/images/groom.png";
+import Slider from "@components/Slider.astro";
+
 ---
 
 <section
@@ -19,40 +19,45 @@ import groomImg from "@assets/images/groom.png"
   />
 
   <div class="w-full flex flex-col gap-2 items-center justify-center mt-4">
-    <p class="text-amber-50  text-xl w-full text-center my-auto">
+    <p class="text-amber-50 text-xl w-full text-center my-auto">
       Confirmación:
     </p>
     <Image alt="date" src={whatsImg} class="h-10 w-10" />
-    <p class="text-amber-50  text-sm w-96 text-center">
+    <p class="text-amber-50 text-sm w-96 text-center">
       Te pedimos confirmar tu asistencia
     </p>
   </div>
 
-  
   <div class="flex w-full justify-center items-center mt-4 gap-8">
     <div class="flex gap-1 justify-start items-center">
       <Image alt="bride" src={brideImg} class="h-4 w-4 sm:h-6 sm:w:6" />
       <a
-      class="underline text-tertiary font-medium"
-      href="https://api.whatsapp.com/send?phone=+529994397294&text=%C2%A1Hola Juli!%20Confirmo%20mi%20asistencia%20a%20la%20Boda%20%F0%9F%92%92"
-      target="_blank"
-      rel="noopener noreferrer">Confirma aquí</a
+        class="underline text-tertiary font-medium"
+        href="https://api.whatsapp.com/send?phone=+529994397294&text=%C2%A1Hola Juli!%20Confirmo%20mi%20asistencia%20a%20la%20Boda%20%F0%9F%92%92"
+        target="_blank"
+        rel="noopener noreferrer">Confirma aquí</a
       >
     </div>
     <div class="flex gap-1 justify-start items-center">
       <Image alt="grom" src={groomImg} class="h-4 w-4 sm:h-6 sm:w:6" />
       <a
-      class="underline text-tertiary font-medium"
-      href="https://api.whatsapp.com/send?phone=+529991111524&text=%C2%A1Hola Rassiel!%20Confirmo%20mi%20asistencia%20a%20la%20Boda%20%F0%9F%92%92"
-      target="_blank"
-      rel="noopener noreferrer">Confirma aquí</a
+        class="underline text-tertiary font-medium"
+        href="https://api.whatsapp.com/send?phone=+529991111524&text=%C2%A1Hola Rassiel!%20Confirmo%20mi%20asistencia%20a%20la%20Boda%20%F0%9F%92%92"
+        target="_blank"
+        rel="noopener noreferrer">Confirma aquí</a
       >
     </div>
   </div>
-  
-  <FadeImage alt="img-section" src={imgSection} />
 
-  <p class="w-full text-center mb-8 mt-4 text-amber-50 text-3xl">¡Te esperamos!</p>
+  <p class="text-amber-50 text-sm w-full px-2 pt-4 text-center">
+    En caso de no confirmar, entenderemos que no podrás acompañarnos.
+  </p>
+
+  <Slider/>
+
+  <p class="w-full text-center mb-8 mt-4 text-amber-50 text-3xl">
+    ¡Te esperamos!
+  </p>
 
   <div class="flex w-full justify-between items-center pb-8">
     <Image alt="corner" src={cornerFlower} class="rotate-[180deg] w-20 h-20" />

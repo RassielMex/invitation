@@ -1,0 +1,61 @@
+---
+import Image from "astro/components/Image.astro";
+import img1Section from "@assets/images/SaveTheDate_383_h.jpg";
+import img2Section from "@assets/images/SaveTheDate_314.jpg";
+import img3Section from "@assets/images/SaveTheDate_627.jpg";
+---
+
+<div
+  id="slides"
+  class="flex transition-transform duration-800 ease-in-out mt-4"
+>
+  <Image
+    alt="img1-section"
+    src={img1Section}
+    loading="lazy"
+    class="w-full opacity-100 transition-opacity duration-700 ease-in-out"
+  />
+  <Image
+    alt="img2-section"
+    src={img2Section}
+    loading="lazy"
+    class="w-full opacity-0 transition-opacity duration-700 ease-in-out"
+  />
+  <Image
+    alt="img3-section"
+    src={img3Section}
+    loading="lazy"
+    class="w-full opacity-0 transition-opacity duration-700 ease-in-out"
+  />
+</div>
+
+<script>
+  const slides = document.getElementById("slides");
+
+  if (!slides) {
+    throw new Error('No se encontró el elemento con id "slides"');
+  }
+
+  const imgs = slides.querySelectorAll("img");
+  const slidesDiv = slides as HTMLDivElement;
+
+  const totalSlides: number = slidesDiv.children.length;
+  let index: number = 0;
+
+  function showSlide(i: number): void {
+    const offset: number = -i * 100;
+    slidesDiv.style.transform = `translateX(${offset}%)`;
+
+    imgs.forEach((img, index) => {
+      img.classList.toggle("opacity-100", index === i);
+      img.classList.toggle("opacity-0", index !== i);
+    });
+  }
+
+  function nextSlide(): void {
+    index = (index + 1) % totalSlides;
+    showSlide(index);
+  }
+  setInterval(nextSlide, 3000);
+  showSlide(index);
+</script>

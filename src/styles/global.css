@@ -6,25 +6,26 @@
   --color-tertiary: #d8d7a5;
   --color-main-variant: #5b6d3d; 
   
-  --animate-fadeIn: fadeIn 1.5s ease-in-out;
-  @keyframes fadeIn {
+  --animate-grow: grow 1.5s ease-in-out;
+  @keyframes grow {
      0% { 
-      opacity: 0.2;
+      transform: scale(0.9);
      }
     100% {
-      opacity: 1;
+      transform: scale(1);
     }
   }
 
   --animate-upDown: upDown 1s infinite;
   @keyframes upDown {
      0% { 
-      transform: translatey(0);
+      transform: translateY(0);
      }
     100% {
       transform: translateY(-30px);
     }
   }
+
 
   --font-cookie: "Cookie", sans-serif;
   --font-playfair: "Playfair", sans-serif;

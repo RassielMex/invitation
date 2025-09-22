@@ -6,13 +6,13 @@
   --color-tertiary: #d8d7a5;
   --color-main-variant: #5b6d3d; 
   
-  --animate-grow: grow 1.5s ease-in-out;
+  --animate-grow: grow 1.5s ease-in-out 0.3s forwards;
   @keyframes grow {
      0% { 
-      transform: scale(0.9);
+      transform: scale(1);
      }
     100% {
-      transform: scale(1);
+      transform: scale(1.1);
     }
   }
 
@@ -40,7 +40,7 @@
   font-weight: 400;
   font-style: normal;
   src: url("/fonts/Cookie-Regular.ttf") format("truetype");
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {

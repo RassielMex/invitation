@@ -1,26 +1,38 @@
 ---
+import mainImg from "@assets/images/SaveTheDate_334_v.jpg";
+import Image from "astro/components/Image.astro";
 ---
 
-  <section class="h-svh max-w-5xl mx-auto bg-principal flex flex-col justify-between">
-    <div class="w-full h-1/2 flex">
-      <p
-        class="text-amber-50 font-cookie text-5xl md:text-8xl w-full text-center my-auto animate-grow "
-      >
-        Julisa y Rassiel
-      </p>
-    </div>
-    <div class="flex flex-col w-full justify-center items-center pb-4 ">
-			<p class="mb-[25px]  text-amber-50 text-base animate-fadeIn">Desliza hacia arriba</p>
-      <svg
-				class="animate-upDown"
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="#f4f4f4"
-        viewBox="0 0 256 256"
-        ><path
-          d="M213.66,194.34a8,8,0,0,1-11.32,11.32L128,131.31,53.66,205.66a8,8,0,0,1-11.32-11.32l80-80a8,8,0,0,1,11.32,0Zm-160-68.68L128,51.31l74.34,74.35a8,8,0,0,0,11.32-11.32l-80-80a8,8,0,0,0-11.32,0l-80,80a8,8,0,0,0,11.32,11.32Z"
-        ></path></svg
-      >
-    </div>
-  </section>
+<section
+  class="h-svh max-w-5xl mx-auto bg-cover bg-center flex flex-col justify-between"
+>
+  <Image
+    alt="principal"
+    src={mainImg}
+    class="absolute inset-0 w-full h-full object-cover -z-10"
+    priority
+  />
+  <div class="w-full h-1/2 flex">
+    <p
+      class="text-amber-50 font-cookie text-5xl md:text-8xl w-full text-center my-auto animate-grow"
+    >
+      Julisa y Rassiel
+    </p>
+  </div>
+  <div class="flex flex-col w-full justify-center items-center pb-4">
+    <p class="mb-[25px] text-amber-50 text-base animate-fadeIn">
+      Desliza hacia arriba
+    </p>
+    <svg
+      class="animate-upDown"
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      fill="#f4f4f4"
+      viewBox="0 0 256 256"
+      ><path
+        d="M213.66,194.34a8,8,0,0,1-11.32,11.32L128,131.31,53.66,205.66a8,8,0,0,1-11.32-11.32l80-80a8,8,0,0,1,11.32,0Zm-160-68.68L128,51.31l74.34,74.35a8,8,0,0,0,11.32-11.32l-80-80a8,8,0,0,0-11.32,0l-80,80a8,8,0,0,0,11.32,11.32Z"
+      ></path></svg
+    >
+  </div>
+</section>

@@ -32,11 +32,7 @@
 }
 
 @layer utilities{
-   .bg-principal {
-    background-image: url("/src/assets/images/SaveTheDate_334_v.jpg");
-    background-size: cover;
-    background-position: center;
-  }
+
 }
 
 @font-face {
@@ -44,6 +40,7 @@
   font-weight: 400;
   font-style: normal;
   src: url("/fonts/Cookie-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {

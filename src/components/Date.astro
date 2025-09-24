@@ -27,15 +27,14 @@ import unmuted from "@assets/images/unmuted.png";
   />
 
   <div class="flex gap-1 items-center justify-center w-full mt-4">
-    <p class="text-amber-50 text-xs">Reproduce nuestra canción</p>
-    <Image alt="music" src={musicImg} class="h-4 w-4" />
+    <p class="text-amber-50 text-xs">Reproduce nuestra canción:</p>
+    <!-- <Image alt="music" src={musicImg} class="h-4 w-4" /> -->
   </div>
-  <div class="flex items-center justify-center gap-2 mt-4">
-    <div class="w-1/2">
+  <div class="flex items-center justify-center gap-2 mt-2 ">
+    <div class="hidden">
       <audio
         id="audio"
         controls
-        autoplay
         muted
         class="w-full rounded-lg overflow-hidden"
       >
@@ -43,7 +42,7 @@ import unmuted from "@assets/images/unmuted.png";
         Tu navegador no soporta audio.
       </audio>
     </div>
-    <button id="safariBtn" class="hidden rounded bg-black/50 p-1">
+    <button id="playBtn" class="rounded bg-amber-50/25 p-1">
       <Image id="muted" alt="muted" src={muted} class="h-6 w-6" />
       <Image id="unmuted" alt="unmuted" src={unmuted} class="hidden h-6 w-6" />
     </button>
@@ -97,34 +96,28 @@ import unmuted from "@assets/images/unmuted.png";
 </section>
 
 <script>
-  function isSafari() {
-    const ua = navigator.userAgent.toLowerCase();
-    return (
-      ua.includes("safari") && !ua.includes("chrome") && !ua.includes("android")
-    );
-  }
-
-  const safariBtn = document.getElementById(
-    "safariBtn"
+  const playBtn = document.getElementById(
+    "playBtn"
   ) as HTMLButtonElement | null;
 
-  if (isSafari() && safariBtn) {
-    safariBtn.classList.remove("hidden");
-  }
+
 
   const muted = document.getElementById("muted") as HTMLImageElement | null;
   const unmuted = document.getElementById("unmuted") as HTMLImageElement | null;
   const audio = document.getElementById("audio") as HTMLVideoElement | null;
 
-  safariBtn?.addEventListener("click", () => {
+  playBtn?.addEventListener("click", () => {
     if (!audio || !muted || !unmuted) return;
 
     if (audio.muted) {
       audio.muted = false;
+      audio.play()
+      audio.volume = 0.5
       muted.classList.add("hidden");
       unmuted.classList.remove("hidden");
     } else {
       audio.muted = true;
+      audio.pause()
       muted.classList.remove("hidden");
       unmuted.classList.add("hidden");
     }

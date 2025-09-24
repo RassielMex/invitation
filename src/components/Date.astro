@@ -7,7 +7,9 @@ import imgSection from "@assets/images/Civil_JulixRassiel_169.jpg";
 import weddingImg from "@assets/images/wedding-couple.png";
 import musicImg from "@assets/images/music.png";
 import CounterDown from "@components/CounterDown.astro";
-import loveSong from "@assets/music/lovesong.mp3"
+import loveSong from "@assets/music/lovesong.mp3";
+import muted from "@assets/images/muted.png";
+import unmuted from "@assets/images/unmuted.png";
 ---
 
 <section
@@ -25,18 +27,30 @@ import loveSong from "@assets/music/lovesong.mp3"
   />
 
   <div class="flex gap-1 items-center justify-center w-full mt-4">
-  <p class="text-amber-50 text-xs ">Reproduce nuestra canción</p>
-  <Image alt="music" src={musicImg} class="h-4 w-4"/>
+    <p class="text-amber-50 text-xs">Reproduce nuestra canción</p>
+    <Image alt="music" src={musicImg} class="h-4 w-4" />
   </div>
-  <div class="py-4 m-auto w-1/2">
-    <audio controls autoplay muted class="w-full rounded-lg overflow-hidden">
-      <source src={loveSong} type="audio/mpeg" />
-      Tu navegador no soporta audio.
-    </audio>
+  <div class="flex items-center justify-center gap-2 mt-4">
+    <div class="w-1/2">
+      <audio
+        id="audio"
+        controls
+        autoplay
+        muted
+        class="w-full rounded-lg overflow-hidden"
+      >
+        <source src={loveSong} type="audio/mpeg" />
+        Tu navegador no soporta audio.
+      </audio>
+    </div>
+    <button id="safariBtn" class="hidden rounded bg-gray-800 p-1">
+      <Image id="muted" alt="muted" src={muted} class="h-6 w-6" />
+      <Image id="unmuted" alt="unmuted" src={unmuted} class="hidden h-6 w-6" />
+    </button>
   </div>
 
   <div class="w-full flex flex-col gap-2 items-center justify-center mt-4">
-    <p class="text-amber-50  text-base w-full text-center my-auto">
+    <p class="text-amber-50 text-base w-full text-center my-auto">
       Después de tanto soñar, llegó el gran día....
     </p>
     <p class="text-amber-50 text-xl w-full text-center my-auto">
@@ -44,14 +58,13 @@ import loveSong from "@assets/music/lovesong.mp3"
     </p>
     <Image alt="date" src={calendar} class="h-10 w-10" />
     <p
-      class="text-amber-50  text-3xl md:text-4xl border border-amber-50 py-1 px-2"
+      class="text-amber-50 text-3xl md:text-4xl border border-amber-50 py-1 px-2"
     >
       15 Noviembre 2025
     </p>
   </div>
 
-  
-  <CounterDown/>
+  <CounterDown />
 
   <FadeImage alt="img-section" src={imgSection} />
 
@@ -62,7 +75,7 @@ import loveSong from "@assets/music/lovesong.mp3"
         Padres de la novia:
       </p>
       <p class="text-amber-50 text-base w-full text-center my-auto">
-        Rafael Martín Pech 
+        Rafael Martín Pech
       </p>
       <p class="text-amber-50 text-base w-full text-center my-auto">
         Marisa del Rosario Gómez Sansores
@@ -70,11 +83,11 @@ import loveSong from "@assets/music/lovesong.mp3"
     </div>
 
     <div>
-      <p class="text-amber-50  text-xl w-full text-center my-auto">
+      <p class="text-amber-50 text-xl w-full text-center my-auto">
         Padres del novio:
       </p>
       <p class="text-amber-50 text-base w-full text-center my-auto">
-        Luis Antonio Mex Segovia 
+        Luis Antonio Mex Segovia
       </p>
       <p class="text-amber-50 text-base w-full text-center my-auto">
         Fany del Rosario Dzib Mena
@@ -82,3 +95,38 @@ import loveSong from "@assets/music/lovesong.mp3"
     </div>
   </div>
 </section>
+
+<script>
+  function isSafari() {
+    const ua = navigator.userAgent.toLowerCase();
+    return (
+      ua.includes("safari") && !ua.includes("chrome") && !ua.includes("android")
+    );
+  }
+
+  const safariBtn = document.getElementById(
+    "safariBtn"
+  ) as HTMLButtonElement | null;
+
+  if (isSafari() && safariBtn) {
+    safariBtn.classList.remove("hidden");
+  }
+
+  const muted = document.getElementById("muted") as HTMLImageElement | null;
+  const unmuted = document.getElementById("unmuted") as HTMLImageElement | null;
+  const audio = document.getElementById("audio") as HTMLVideoElement | null;
+
+  safariBtn?.addEventListener("click", () => {
+    if (!audio || !muted || !unmuted) return;
+
+    if (audio.muted) {
+      audio.muted = false;
+      muted.classList.add("hidden");
+      unmuted.classList.remove("hidden");
+    } else {
+      audio.muted = true;
+      muted.classList.remove("hidden");
+      unmuted.classList.add("hidden");
+    }
+  });
+</script>

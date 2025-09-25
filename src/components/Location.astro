@@ -5,6 +5,7 @@ import cornerFlower from "@assets/images/hojas.png";
 import imgSection from "@assets/images/SaveTheDate_446_1.jpg";
 import churchImg from "@assets/images/iglesia.png";
 import glassesImg from "@assets/images/brindis.png";
+import brideGroomImg from "@assets/images/bride-and-groom.png"
 ---
 
 <section
@@ -13,8 +14,37 @@ import glassesImg from "@assets/images/brindis.png";
   <Image
     alt="corner"
     src={cornerFlower}
+    class="rotate-[180deg] top-0 left-0 absolute w-20 h-20"
+  />
+  <Image
+    alt="corner"
+    src={cornerFlower}
     class="bottom-0 right-0 absolute w-20 h-20"
   />
+
+    <div class="flex flex-col gap-4 items-center py-4">
+    <Image alt="wedding" src={brideGroomImg} class="w-10 h-10" />
+    <div>
+      <p class="text-amber-50 text-xl w-full text-center my-auto">
+        Nuestros padrinos:
+      </p>
+      <p class="text-amber-50 text-base w-full text-center my-auto">
+        Rosa Elena Perera Martín 
+      </p>
+      <p class="text-amber-50 text-base w-full text-center my-auto">
+        Xavier Alejandro Gómez Sansores
+      </p>
+    </div>
+
+    <div>
+      <p class="text-amber-50 text-base w-full text-center my-auto">
+        Alma María Montero Paredes
+      </p>
+      <p class="text-amber-50 text-base w-full text-center my-auto">
+        Luis Armando Mex Dzib
+      </p>
+    </div>
+  </div>
 
   <FadeImage alt="img-section" src={imgSection} />
 
